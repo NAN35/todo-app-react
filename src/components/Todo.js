@@ -18,8 +18,8 @@ function Todo({ todos, completeTodo, removeTodo, updatedTodo }) {
     });
   };
 
-  if(edit.id){  
-    return <TodoForm onSubmit={submitUpdate}/>
+  if (edit.id) {
+    return <TodoForm edit={edit} onSubmit={submitUpdate} />;
   }
 
   return todos.map((todo, index) => (
@@ -36,8 +36,10 @@ function Todo({ todos, completeTodo, removeTodo, updatedTodo }) {
           className="delete-icon"
         />
         <TiEdit
-          onClick={() =>{ setEdit({ id: todo.id, value: todo.text }) 
-          console.log(edit)}}
+          onClick={() => {
+            setEdit({ id: todo.id, value: todo.text });
+            console.log(edit);
+          }}
           className="edit-icon"
         />
       </div>
